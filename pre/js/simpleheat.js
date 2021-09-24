@@ -1,8 +1,4 @@
-'use strict';
-
-if (typeof module !== 'undefined') module.exports = simpleheat;
-
-function simpleheat(canvas) {
+export function simpleheat(canvas) {
     if (!(this instanceof simpleheat)) return new simpleheat(canvas);
 
     this._canvas = canvas = typeof canvas === 'string' ? document.getElementById(canvas) : canvas;

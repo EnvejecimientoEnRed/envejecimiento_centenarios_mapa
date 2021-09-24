@@ -18,13 +18,17 @@
             <section class="content b-chart active" id="chartBlock">
                 <div class="b-title">
                     <h1 class="title">Mapa de calor de la tasa de centenarios por cada 10.000 personas en España</h1>
-                    <h2 class="subtitle">Gráfico 4/2021. Datos de 2020.</h2>
+                    <h2 class="subtitle">Gráfico 4/2021. Datos de 2020 del Padrón continuo.</h2>
                 </div>
                 <div class="chart__logics">
                     <div class="chart__legend">
-                        <span class="chart__legend--item first">Tasa anual</span>
-                        <span class="chart__legend--item second">Tendencia suavizada</span>
-                    </div>                
+                        <span class="chart__legend--gradient"></span>
+                        <div class="chart__legend--data">
+                            <span>Baja</span>
+                            <span>Media</span>
+                            <span>Alta</span>
+                        </div>
+                    </div>               
                 </div>
                 <div class="chart__viz" id="chart"></div>
                 <!-- Pie de gráfico -->
@@ -51,7 +55,7 @@
                     <h1 class="title">Repositorio de código, de datos y posibilidad de descarga como imagen estática</h1>
                 </div>
                 <p class="text__header">Descarga de datos</p>
-                <p class="text__paragraph">Los datos procesados en esta visualización los puede encontrar en <a class="link" href="https://github.com/EnvejecimientoEnRed/envejecimiento_alzheimer_evolucion" target="_blank">este repositorio de Github</a>.</p>
+                <p class="text__paragraph">Los datos procesados en esta visualización los puede encontrar en <a class="link" href="https://github.com/CarlosMunozDiazCSIC/envejecimiento_centenarios_mapa/" target="_blank">este repositorio de Github</a>.</p>
                 <p class="text__paragraph">Si desea descargarlos, puede hacerlo desde <a class="link" href="https://raw.githubusercontent.com/EnvejecimientoEnRed/envejecimiento_alzheimer_evolucion/main/data/tasa_nal_alz.csv" target="_blank">aquí</a>.</p>
                 <p class="text__header">Descargar como PNG</p>
                 <p class="text__paragraph">También puede descargar el gráfico como una imagen .png haciendo click <button class="btn_share" id="pngImage">aquí</button></p> 
