@@ -82,7 +82,7 @@ body, button {
             &--gradient {
                 width: 100%;
                 height: 6px;
-                background-image: linear-gradient(to right, blue, cyan, lime, yellow, red);
+                background-image: linear-gradient(to right, #a7e7e7, #68a7a7, #2b6b6c, #003334);
             }
 
             &--data {
@@ -122,8 +122,6 @@ body, button {
             height: 420px;
             margin-top: 12px;
 
-            position: relative;
-
             & .tick text {
                 font-family: 'Titillium Web';
                 font-style: normal;
@@ -142,12 +140,6 @@ body, button {
             & .line-special {
                 stroke: #000 !important;
                 stroke-width: 0.5px !important;
-            }
-
-            //Mapas internos
-            * {
-                position: absolute;
-                top: 0px;
             }
         }
 
@@ -329,6 +321,8 @@ body, button {
 .chart__tooltip {
     position: absolute;
     opacity: 0;   
+
+    top: 0px;
 
     width: auto;
     max-width: 135px;
