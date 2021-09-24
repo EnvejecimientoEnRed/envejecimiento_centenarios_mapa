@@ -64,17 +64,17 @@ function main(error, centenarios, prov) {
     let heat = simpleheat(canvas);
 
     // set data of [[x, y, value], ...] format
-    heat.data(cents.map(d => { return [d.coords[0], d.coords[1], d.properties.Tasa]}));
+    heat.data(cents.map(d => { return [d.coords[0], d.coords[1], d.properties.tasa_total]}));
 
     // set point radius and blur radius (25 and 15 by default)
-    heat.radius(7.5, 3.5);
+    heat.radius(25, 12.5);
 
     // optionally customize gradient colors, e.g. below
     // (would be nicer if d3 color scale worked here)
     // heat.gradient({0: '#ffeda0', 0.5: '#feb24c', 1: '#f03b20'});
 
     // set maximum for domain
-    heat.max(d3.max(cents, d => d.properties.Tasa));
+    heat.max(d3.max(cents, d => d.properties.tasa_total));
 
     // draw into canvas, with minimum opacity threshold
     heat.draw(0.05);
