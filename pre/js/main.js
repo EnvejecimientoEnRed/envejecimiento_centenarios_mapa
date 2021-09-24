@@ -28,15 +28,19 @@ let context = canvas.getContext("2d");
 
 
 d3.queue()
-    .defer(d3.json, 'https://raw.githubusercontent.com/CarlosMunozDiazCSIC/envejecimiento_centenarios_mapa/main/data/muni_cent.json')
+    .defer(d3.json, 'https://raw.githubusercontent.com/CarlosMunozDiazCSIC/envejecimiento_centenarios_mapa/main/data/provincias_puntos.json')
     .defer(d3.json, 'https://raw.githubusercontent.com/CarlosMunozDiazCSIC/envejecimiento_centenarios_mapa/main/data/provincias.json')
     .await(main);
 
 function main(error, centenarios, prov) {
     if (error) throw error;
 
+    console.log(centenarios);
+
     let provs = topojson.feature(prov, prov.objects.provincias);
-    let cents = topojson.feature(centenarios, centenarios.objects.muni_cent).features;
+    let cents = topojson.feature(centenarios, centenarios.objects.provincias).features;
+
+    console.log(cents);
 
     //let projection = d3.geoMercator().scale(2200).center([0, 40]).translate([width / 1.7, height / 2]);
     let projection = d3_composite.geoConicConformalSpain().scale(2000).fitSize([width,height], provs);
