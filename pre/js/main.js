@@ -25,8 +25,8 @@ let mapLayer = chartBlock.append('svg').attr('id', 'map').attr('width', width).a
 
 
 d3.queue()
-    .defer(d3.json, 'https://raw.githubusercontent.com/CarlosMunozDiazCSIC/envejecimiento_centenarios_mapa/main/data/provincias_coro.json')
-    .defer(d3.json, 'https://raw.githubusercontent.com/CarlosMunozDiazCSIC/envejecimiento_centenarios_mapa/main/data/provincias.json')
+    .defer(d3.json, 'https://raw.githubusercontent.com/EnvejecimientoEnRed/envejecimiento_centenarios_mapa/main/data/provincias_coro.json')
+    .defer(d3.json, 'https://raw.githubusercontent.com/EnvejecimientoEnRed/envejecimiento_centenarios_mapa/main/data/provincias.json')
     .await(main);
 
 function main(error, centenarios, prov) {
