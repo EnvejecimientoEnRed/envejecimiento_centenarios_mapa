@@ -62,10 +62,10 @@ function main(error, centenarios) {
             currentProv.style.stroke = '#000';
             currentProv.style.strokeWidth = '1px';
 
-            //Elemento HTML > Tooltip (mostrar nombre de provincia, año y tasas para más de 100 años)
-            let html = '<p class="chart__tooltip--title">' + d.properties.name + '<p class="chart__tooltip--text">Tasa general (100 años o más): ' + numberWithCommas(d.properties.prop_total_65_100.replace(',','.')) + '</p>' + 
-            '<p class="chart__tooltip--text">Tasa en mujeres (100 años o más): ' + numberWithCommas(d.properties.prop_mujeres_65_100.replace(',','.')) + '</p>' + 
-            '<p class="chart__tooltip--text">Tasa en hombres (100 años o más): ' + numberWithCommas(d.properties.prop_hombres_65_100.replace(',','.')) + '</p>';
+            //Elemento HTML > Tooltip (mostrar nombre de provincia, año y Proporcións para más de 100 años)
+            let html = '<p class="chart__tooltip--title">' + d.properties.name + '<p class="chart__tooltip--text">Proporción general (100 años o más): ' + numberWithCommas(d.properties.prop_total_65_100.replace(',','.')) + '</p>' + 
+            '<p class="chart__tooltip--text">Proporción en mujeres (100 años o más): ' + numberWithCommas(d.properties.prop_mujeres_65_100.replace(',','.')) + '</p>' + 
+            '<p class="chart__tooltip--text">Proporción en hombres (100 años o más): ' + numberWithCommas(d.properties.prop_hombres_65_100.replace(',','.')) + '</p>';
 
             tooltip.html(html);
 
