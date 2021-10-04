@@ -25,11 +25,10 @@ let mapLayer = chartBlock.append('svg').attr('id', 'map').attr('width', width).a
 
 
 d3.queue()
-    .defer(d3.json, 'https://raw.githubusercontent.com/EnvejecimientoEnRed/envejecimiento_centenarios_mapa/main/data/provincias_coro.json')
-    .defer(d3.json, 'https://raw.githubusercontent.com/EnvejecimientoEnRed/envejecimiento_centenarios_mapa/main/data/provincias.json')
+    .defer(d3.json, 'https://raw.githubusercontent.com/EnvejecimientoEnRed/envejecimiento_centenarios_mapa/main/data/provincias_proporcion.json')
     .await(main);
 
-function main(error, centenarios, prov) {
+function main(error, centenarios) {
     if (error) throw error;
 
     let cents = topojson.feature(centenarios, centenarios.objects.provincias);
@@ -39,7 +38,7 @@ function main(error, centenarios, prov) {
 
     //cents.forEach(d => { d.coords = projection([d.geometry.coordinates[0], d.geometry.coordinates[1]]) });
     let colors = d3.scaleLinear()
-        .domain([0,3,6,9])
+        .domain([70, 165, 235, 330])
         .range(['#a7e7e7', '#68a7a7', '#2b6b6c', '#003334'])
     
     mapLayer.selectAll(".provincias")
@@ -48,7 +47,7 @@ function main(error, centenarios, prov) {
         .append("path")
         .attr("class", "provincias")
         .style('fill', function(d) {
-            return colors(d.properties.tasa_total);
+            return colors(+d.properties.prop_total_65_100.replace(',','.'));
         })
         .style('stroke', '#282828')
         .style('stroke-width', '0.25px')
@@ -64,9 +63,9 @@ function main(error, centenarios, prov) {
             currentProv.style.strokeWidth = '1px';
 
             //Elemento HTML > Tooltip (mostrar nombre de provincia, año y tasas para más de 100 años)
-            let html = '<p class="chart__tooltip--title">' + d.properties.name + '<p class="chart__tooltip--text">Tasa general (100 años o más): ' + numberWithCommas(d.properties.tasa_total.toFixed(2)) + '</p>' + 
-            '<p class="chart__tooltip--text">Tasa en mujeres (100 años o más): ' + numberWithCommas(d.properties.tasa_mujeres.toFixed(2)) + '</p>' + 
-            '<p class="chart__tooltip--text">Tasa en hombres (100 años o más): ' + numberWithCommas(d.properties.tasa_hombres.toFixed(2)) + '</p>';
+            let html = '<p class="chart__tooltip--title">' + d.properties.name + '<p class="chart__tooltip--text">Tasa general (100 años o más): ' + numberWithCommas(d.properties.prop_total_65_100.replace(',','.')) + '</p>' + 
+            '<p class="chart__tooltip--text">Tasa en mujeres (100 años o más): ' + numberWithCommas(d.properties.prop_mujeres_65_100.replace(',','.')) + '</p>' + 
+            '<p class="chart__tooltip--text">Tasa en hombres (100 años o más): ' + numberWithCommas(d.properties.prop_hombres_65_100.replace(',','.')) + '</p>';
 
             tooltip.html(html);
 
