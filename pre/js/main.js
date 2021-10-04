@@ -32,11 +32,9 @@ d3.queue()
 function main(error, centenarios, prov) {
     if (error) throw error;
 
-    let provs = topojson.feature(prov, prov.objects.provincias);
     let cents = topojson.feature(centenarios, centenarios.objects.provincias);
     
-    //let projection = d3.geoMercator().scale(2200).center([0, 40]).translate([width / 1.7, height / 2]);
-    let projection = d3_composite.geoConicConformalSpain().scale(2000).fitSize([width,height], provs);
+    let projection = d3_composite.geoConicConformalSpain().scale(2000).fitSize([width,height], cents);
     let path = d3.geoPath(projection);
 
     //cents.forEach(d => { d.coords = projection([d.geometry.coordinates[0], d.geometry.coordinates[1]]) });
