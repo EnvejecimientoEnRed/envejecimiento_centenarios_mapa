@@ -1,6 +1,6 @@
-## Visualización con la evolución de la tasa de mortalidad por alzheimer en España
+## Visualización
 
-Visualización que mide la evolución de la tasa de mortalidad por alzheimer en España
+Mapa por provincias que muestra la Proporción de centenarios por cada 100.000 personas con 65 años o más
 
 ## Licencia
 
